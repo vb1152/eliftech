@@ -1,1 +1,1 @@
-web: gunicorn django_drill_mach.wsgi --log-file -
+web: gunicorn mysite.wsgi --log-file -
