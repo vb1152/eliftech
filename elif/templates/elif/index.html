@@ -1,0 +1,66 @@
+{% extends 'elif/layout.html' %}
+{% load static %}
+{% csrf_token %}
+
+
+{% block header %}
+  <!--h1 style="text-align:center">{% block title %}Main page{% endblock %}</h1-->
+
+  <style type="text/css">
+    body{
+        background: rgb(54, 217, 182);
+        background: linear-gradient(90deg, rgba(54,217,182,1), rgba(32,152,126,1) 43%, rgba(0, 212, 255, 1) 100%);
+    }
+    .cards-container {
+        display: flex;
+        column-count: 2;
+        flex-wrap: wrap;
+        height: 510px;
+        }
+    .card {
+        margin: 20px;
+    }
+
+    .card-img-top:hover {
+        transform: scale(1.5);
+    }
+  </style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-4">
+            <br>
+            <div id="buttons">
+                {% for shop in shops %}
+                    <button type="button" class="btn btn-warning btn-lg" style="width: 300px;" id="{{ shop.id }}">{{ shop.name }}</button>
+                    <br>
+                    <br>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-8">
+            <br>
+            <div class="cards-container" id="cards-container">
+                {% for item in food %}
+                <div class="card" style="width: 18rem;">
+                    <img src='{{ item.image }}' class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h4 class="card-title">{{ item.name }}</h5>
+                        <p class="card-text">{{item.description}}</p>
+                        <h5>Ціна: {{item.price}}</h5> 
+                        <a href="#" class="btn btn-outline-success">До кошика</a>
+                    </div>
+                </div>
+                <br>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+{% block scripts %}
+    <script src="{% static 'elif/index.js' %}"></script>
+{% endblock %}
