@@ -1,0 +1,25 @@
+{% extends 'elif/layout.html' %}
+{% load static %}
+{% csrf_token %}
+
+
+{% block header %}
+  <!--h1 style="text-align:center">{% block title %}Main page{% endblock %}</h1-->
+  <style type="text/css">
+    body{
+        background: rgb(54, 217, 182);
+        background: linear-gradient(90deg, rgba(54,217,182,1), rgba(32,152,126,1) 43%, rgba(0, 212, 255, 1) 100%);
+    }
+  </style>
+{% endblock %}
+
+{% block content %}
+    <div class="total-class">
+        <h1 id="total">
+            Дякуємо за замовленя! Чекайте дзвінка
+        </h2>
+    </div>
+{% endblock %}
+{% block scripts %}
+    {{ block.super }}
+{% endblock %}

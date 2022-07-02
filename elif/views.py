@@ -1,5 +1,5 @@
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 import json 
 from .models import Shop, Food, Order, OrderItem, Customer
 from django.urls import reverse
@@ -71,3 +71,37 @@ def add_to_cart(request):
             return JsonResponse(data, safe=False)
 
         return JsonResponse(200, safe=False)
+
+
+def end(request):
+    return render(request, 'elif/end.html')
+
+def place_order(request):
+    if request.method == 'POST':
+        data = json.load(request)
+        order = data['orderDataDict']
+        user_data = data['userDataDict']
+        # {'orderDataDict': {'7': '1', '8': '1'}, 
+        # 'userDataDict': {'inputname': 'Василь', 
+        #                   'inputemail': 'Пошта', 
+        #                   'inputphone': 'asd', 
+        #                   'inputaddress': 'фівфв'}}
+
+        customer = Customer(name=user_data['inputname'], 
+                            email=user_data['inputemail'], 
+                            phone=user_data['inputphone'], 
+                            addres=user_data['inputaddress'])
+        customer.save()
+        
+        order_instance = Order(customer=customer)
+        order_instance.save()
+
+        for i in order:
+            food = Food.objects.get(id=i)
+            order_item = OrderItem(food=food, 
+                                    order=order_instance, 
+                                    quantity=order[i])
+            order_item.save()
+
+        return redirect(reverse('elif:end'))
+

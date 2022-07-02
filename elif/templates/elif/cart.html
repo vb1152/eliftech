@@ -22,6 +22,10 @@
     #group-number {
         margin-top: 30px;
     }
+    .total-class {
+        position: absolute;
+        right: 150px;
+    }
 
   </style>
 {% endblock %}
@@ -31,27 +35,24 @@
     <div class="row">
         <div class="col">
             <br>
-            <form>
+            <form id="form">
                 <div class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label"><h5>Name</h5></label>
-                  <input type="text" class="form-control form-control-lg" id="exampleInputEmail1">
+                    <label for="exampleInputEmail1" class="form-label"><h5>Name</h5></label>
+                    <input type="text" class="form-control form-control-lg" id="inputname">
                 </div>
-
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Email</label>
-                    <input type="email" class="form-control form-control-lg" id="exampleInputEmail1">
+                    <input type="email" class="form-control form-control-lg" id="inputemail">
                 </div>
-
                 <div class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label">Phone</label>
-                  <input type="text" class="form-control form-control-lg" id="exampleInputEmail1">
+                    <label for="exampleInputEmail1" class="form-label">Phone</label>
+                    <input type="text" class="form-control form-control-lg" id="inputphone">
                 </div>
-                
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Address</label>
-                    <input type="text" class="form-control form-control-lg" id="exampleInputEmail1">
-                  </div>
-              </form>
+                    <input type="text" class="form-control form-control-lg" id="inputaddress">
+                </div>
+            </form>
         </div>
         <div class="col">
             <br>
@@ -69,7 +70,7 @@
                             </div>
                         </div>
                         <div class="col col-lg-2" id="group-number">
-                            <input class="form-control" type="number" min="1" id="number" value="1">
+                            <input data-price='{{ item.price }}' class="form-control" type="number" min="1" id="number" value="1">
                         </div>
                       
                         <button data-product='{{ item.id }}' data-action='del' type="button" class="btn-close delete-item" aria-label="Close"></button>
@@ -77,15 +78,18 @@
                 </div>
               {% endfor %}
             
-                <div id="total">
-                    <h2>
-                        200
-                    </h2>
-                </div>
+                
+                
             </div>
         </div>
     </div>
-</div>
+    
+    <div class="total-class">Всього:
+        <h2 id="total">
+            0
+        </h2>
+        <button id="submit" type="submit" class="btn btn-success">Замовити</button>
+    </div>
 
 
 {% endblock %}
