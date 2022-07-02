@@ -1,6 +1,5 @@
 venv/
 *.sqlite3
-*.txt
 .env
 
 __pycache__
