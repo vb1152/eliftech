@@ -50,7 +50,7 @@
                         <h4 class="card-title">{{ item.name }}</h5>
                         <p class="card-text">{{item.description}}</p>
                         <h5>Ціна: {{item.price}}</h5> 
-                        <a href="#" class="btn btn-outline-success">До кошика</a>
+                        <button data-product='{{ item.id }}' data-action='add' href="#" class="btn btn-outline-success update-cart">До кошика</button>
                     </div>
                 </div>
                 <br>
@@ -62,5 +62,6 @@
 
 {% endblock %}
 {% block scripts %}
+    {{ block.super }}
     <script src="{% static 'elif/index.js' %}"></script>
 {% endblock %}

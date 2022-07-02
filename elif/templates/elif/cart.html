@@ -16,7 +16,7 @@
         margin-left: 30px;
     }
     #number{
-        width: 50px;
+        width: 70px;
         height: 30px;
     }
     #group-number {
@@ -55,30 +55,34 @@
         </div>
         <div class="col">
             <br>
-            {% for item in food %}
-            <div class="card mb-3" style="max-width: 540px;">
-                <div class="row g-0">
-                  <div class="col">
-                    <img src='{{ item.image }}' class="img-fluid rounded-start" alt="...">
-                  </div>
-                  <div class="col">
-                    <div class="card-body">
-                      <h5 class="card-title">{{ item.name }}</h5>
-                      <h5>Ціна: {{item.price}}</h5> 
+            <div class="cards-container" id="cards-container">
+              {% for item in food %}
+                <div class="card mb-3" style="max-width: 500px;">
+                    <div class="row g-0">
+                        <div class="col">
+                            <img src='{{ item.image }}' class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ item.name }}</h5>
+                                <h5>Ціна: {{item.price}}</h5> 
+                            </div>
+                        </div>
+                        <div class="col col-lg-2" id="group-number">
+                            <input class="form-control" type="number" min="1" id="number" value="1">
+                        </div>
                       
+                        <button data-product='{{ item.id }}' data-action='del' type="button" class="btn-close delete-item" aria-label="Close"></button>
                     </div>
-                  </div>
-                    <div class="col" id="group-number">
-                        <button type="button" class="btn btn-outline-primary btn-sm">-</button>
-                        <input type="number" id="number">
-                        <button type="button" class="btn btn-outline-primary btn-sm">+</button>
-                    </div>
-                    
-                    <button type="button" class="btn-close" aria-label="Close"></button>
                 </div>
-
+              {% endfor %}
+            
+                <div id="total">
+                    <h2>
+                        200
+                    </h2>
+                </div>
             </div>
-            {% endfor %}
         </div>
     </div>
 </div>
@@ -86,4 +90,6 @@
 
 {% endblock %}
 {% block scripts %}
+    {{ block.super }}
+    <script src="{% static 'elif/cart.js' %}"></script>
 {% endblock %}
