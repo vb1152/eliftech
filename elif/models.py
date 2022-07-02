@@ -46,9 +46,6 @@ class Food(models.Model):
         return self.name
 
 class Order(models.Model):
-    # date_order = models.DateTimeField(auto_now_add=True)
-    # complete = models.BooleanField(default=False)
-    # order_items = models.ForeignKey(OrderItem, )
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE, blank=True, null=True)
 
     def __str__(self) -> str:
