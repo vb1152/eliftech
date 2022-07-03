@@ -17,4 +17,4 @@ python manage.py createsuperuser
 ```
 
 Add new shops via Додати магазини 
-Add new items for every shop via admin panel localhost:8000/admin
+Add new items for every shop via admin panel /admin (login: admin, passw: admin)
