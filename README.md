@@ -16,5 +16,4 @@ python manage.py runserver
 python manage.py createsuperuser
 ```
 
-Add new shops via Додати магазини 
-Add new items for every shop via admin panel /admin (login: admin, passw: admin)
+Add new shops and new items for every shop possible via admin panel .../admin (login: admin, passw: admin)
