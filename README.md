@@ -15,3 +15,6 @@ python manage.py migrate
 python manage.py runserver
 python manage.py createsuperuser
 ```
+
+Add new shops via Додати магазини 
+Add new items for every shop via admin panel localhost:8000/admin
