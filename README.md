@@ -17,3 +17,6 @@ python manage.py createsuperuser
 ```
 
 Add new shops and new items for every shop possible via admin panel .../admin (login: admin, passw: admin)
+
+# Running exammple:
+## https://damp-cliffs-17321.herokuapp.com/
