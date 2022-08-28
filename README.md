@@ -1,7 +1,5 @@
 # Delivery app
 
-### This is a test assignment for https://eliftech.school/ 
-
 Web application where users can order food delivery
 
 to run app: 
@@ -18,5 +16,3 @@ python manage.py createsuperuser
 
 Add new shops and new items for every shop possible via admin panel .../admin (login: admin, passw: admin)
 
-# Running exammple:
-## https://damp-cliffs-17321.herokuapp.com/
